@@ -17,7 +17,7 @@ class App extends React.Component {
       ontology:'',
       accession:'',
       loading:false,
-      data:[]
+      data:{}
 
 
     };
@@ -62,7 +62,7 @@ class App extends React.Component {
         (response) => { 
           this.setState({
             loading:false,
-            data:[response.data]
+            data:response.data.data
           })
           
         }, 
@@ -78,7 +78,8 @@ class App extends React.Component {
   render()
   {
     let loading = this.state.loading
-    console.log(this.state)
+    let data = this.state.data
+    // console.log(this.state)
     return (
       <div className="App">
         <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -135,7 +136,7 @@ class App extends React.Component {
     
     <input type="submit" value="Submit" />
   </form>
-  {loading ? <LoadingPage/>: <ResultTable/>}
+  {loading ? <LoadingPage/>: <ResultTable results={data}/>}
   </div>
           
         </div>
