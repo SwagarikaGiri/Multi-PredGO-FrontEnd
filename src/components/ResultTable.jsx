@@ -9,11 +9,8 @@ class ResultTable extends React.Component {
                 <h5 className="section-subheading">{data}</h5>
             )
         }
-        else{
+        else if(data){
             let functionArray = data.ot
-            console.log(typeof(functionArray))
-            console.log(data)
-            console.log("*************"+functionArray+"*************")
             if(functionArray)
             {
                 return(functionArray.map(go=>(<li key={go}>
@@ -21,6 +18,12 @@ class ResultTable extends React.Component {
                 </li>)))
             }
             
+        }
+        else{
+            return (
+                <h5 className="section-subheading">Some error in data</h5>
+            )
+
         }
 
     }
