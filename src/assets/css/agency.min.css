@@ -713,3 +713,54 @@ ul.social-buttons li a:focus,
 ul.social-buttons li a:hover {
     background-color: #fed136
 }
+
+section#results {
+    background-color: whitesmoke;
+    /* background-image: url(../img/map-image.png); */
+    background-repeat: no-repeat;
+    background-position: center
+}
+
+section#results .section-heading {
+    color: black
+}
+
+section#results .form-group {
+    margin-bottom: 25px,
+
+}
+
+section#results .form-group input,
+section#contact .form-group textarea {
+    padding: 20px
+}
+
+section#results .form-group input,
+section#results.form-group textarea {
+    padding: 20px
+}
+
+
+section#results ::-webkit-input-placeholder {
+    font-weight: 700;
+    color: #ced4da;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'
+}
+
+section#results :-moz-placeholder {
+    font-weight: 700;
+    color: #ced4da;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'
+}
+
+section#results ::-moz-placeholder {
+    font-weight: 700;
+    color: #ced4da;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'
+}
+
+section#results :-ms-input-placeholder {
+    font-weight: 700;
+    color: #ced4da;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'
+}

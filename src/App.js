@@ -17,7 +17,8 @@ class App extends React.Component {
       ontology:'',
       accession:'',
       loading:false,
-      data:{}
+      data:{},
+      submitError:'',
 
 
     };
@@ -31,40 +32,35 @@ class App extends React.Component {
 
 
   onInputChange(event){
-
+    this.setState({submitError:''})
     this.setState({accession: event.target.value});
+    this.setState({data:{}})
   }
-  showDelayMessage=()=>{
-    return(
-    <div>
-     Please wait for atleast two minutes to get the results
-    </div>
-    )
+  
+ 
 
-  }
-  showResultTable=()=>{
-    return(
-      <div>
-       result is here
-      </div>
-      )
-
-  }
-
+  
   onHandleSubmit=(event)=>{
     event.preventDefault();
     let accession = this.state.accession
     let ontology = this. state.ontology
-    let path = 'http://0.0.0.0:5000/accession?accession_no='+accession+'&ontology='+ontology
-    // console.log("***************"+path+"***************")
+    if(!accession || !ontology){
+      this.setState({submitError:'Please enter Accession No and select the ontology' })
+    }
+    else{
+      
+    let path = 'http://0.0.0.0:8080/accession?accession_no='+accession+'&ontology='+ontology
     this.setState({ loading: true },()=>{
       axios.get(path).then( 
         (response) => { 
-          this.setState({
+          setTimeout(() => { 
+            this.setState({
             loading:false,
-            data:response.data.data
-          })
-          
+            data:response.data.data,
+            accession:'',
+            submitError:''
+          }) 
+        }, 5000);
         }, 
         (error) => { 
             console.log(error); 
@@ -73,12 +69,16 @@ class App extends React.Component {
 
     });
    
+
+    }
+    
    
   }
   render()
   {
     let loading = this.state.loading
     let data = this.state.data
+   console.log(this.state.ontology)
     // console.log(this.state)
     return (
       <div className="App">
@@ -118,25 +118,37 @@ class App extends React.Component {
     </header>
   
     
+
     <section className="page-section" id="results">
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center">
-            <h2 className="section-heading text-uppercase">Get Results</h2>
-            <h3 className="section-subheading text-muted">This tool only needs protein sequence as an input. The source code of the model is available on <a href="https://github.com/SwagarikaGiri/Multi-PredGO"><h6>Github Link</h6></a> Example Accession Number : P53368, P27348</h3>
+            <h2 className="section-heading text-uppercase">Get Results </h2>
+            <h3 className="section-subheading text-muted">This tool only needs protein sequence as an input. The source code of the model is available on <a href="https://github.com/SwagarikaGiri/Multi-PredGO"><h6>Github Link</h6></a> Example Accession Number : Q15287, Q9GZN7, A4X3Q0</h3>
            
             <h6>Please enter the accession number and select the ontology</h6>
-            <form onSubmit = {this.onHandleSubmit}>
-      <input type="text" name="name" value={this.state.accession} onChange={this.onInputChange}/>
-      <div onChange={this.onChangeValue}>
-        <input type="radio" value="bp" name="ontology" /> BP
-        <input type="radio" value="mf" name="ontology" /> MF
-        <input type="radio" value="cc" name="ontology" /> CC
-      </div>
-    
-    <input type="submit" value="Submit" />
-  </form>
-  {loading ? <LoadingPage/>: <ResultTable results={data}/>}
+           
+            <form id="contactForm" name="sentMessage"  onSubmit={this.onHandleSubmit}>
+            {/* <div className="row"> */}
+              <div >
+                <div className="form-group">
+                  <input className="form-control" id="name" type="text" placeholder="Enter Accession Number" onChange={this.onInputChange} value={this.state.accession}/>
+                  <p className="help-block text-danger">{this.state.submitError}</p>
+                </div>
+                <div onChange={this.onChangeValue}>
+                 <input type="radio" value="bp" name="ontology"/> BP
+                 <input type="radio" value="mf" name="ontology" /> MF
+                 <input type="radio" value="cc" name="ontology" /> CC
+                 </div>
+              </div>
+      
+              <div className="col-lg-12 text-center">
+                <div id="success"></div>
+                <button id="sendMessageButton" className="btn btn-primary btn-primary text-uppercase" type="submit">Submit</button>
+              </div>
+         
+            </form>
+        {loading ? <LoadingPage/>: <ResultTable results={data}/>}
   </div>
           
         </div>
