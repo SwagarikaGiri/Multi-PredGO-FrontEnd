@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Multi-PredGO-FrontEnd/static/css/main.23211d52.chunk.css",
+    "main.js": "/Multi-PredGO-FrontEnd/static/js/main.1f9b35c8.chunk.js",
+    "main.js.map": "/Multi-PredGO-FrontEnd/static/js/main.1f9b35c8.chunk.js.map",
+    "runtime~main.js": "/Multi-PredGO-FrontEnd/static/js/runtime~main.0c5a5e50.js",
+    "runtime~main.js.map": "/Multi-PredGO-FrontEnd/static/js/runtime~main.0c5a5e50.js.map",
+    "static/js/2.7ca24509.chunk.js": "/Multi-PredGO-FrontEnd/static/js/2.7ca24509.chunk.js",
+    "static/js/2.7ca24509.chunk.js.map": "/Multi-PredGO-FrontEnd/static/js/2.7ca24509.chunk.js.map",
+    "index.html": "/Multi-PredGO-FrontEnd/index.html",
+    "precache-manifest.abeb25c966ca174472749df44f9e08aa.js": "/Multi-PredGO-FrontEnd/precache-manifest.abeb25c966ca174472749df44f9e08aa.js",
+    "service-worker.js": "/Multi-PredGO-FrontEnd/service-worker.js",
+    "static/css/main.23211d52.chunk.css.map": "/Multi-PredGO-FrontEnd/static/css/main.23211d52.chunk.css.map",
+    "static/media/1.jpeg": "/Multi-PredGO-FrontEnd/static/media/1.2f342a35.jpeg",
+    "static/media/2.jpeg": "/Multi-PredGO-FrontEnd/static/media/2.ac862bb8.jpeg",
+    "static/media/4.jpeg": "/Multi-PredGO-FrontEnd/static/media/4.2ac45e9d.jpeg",
+    "static/media/agency.min.css": "/Multi-PredGO-FrontEnd/static/media/map-image.f40ed5b1.png"
+  }
+}
